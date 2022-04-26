@@ -1,4 +1,5 @@
 import { LoginComponent } from 'src/app/account/login/login.component';
+import { AuthGuard } from 'src/app/account/shared/auth.guard';
 import { CreateComponent } from 'src/app/register/create/create.component';
 import { ListComponent } from 'src/app/register/list/list.component';
 import { ViewComponent } from 'src/app/register/view/view.component';
@@ -13,10 +14,12 @@ const layoutRoutes = [
       {
         path: '',
         component: ListComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'registro/:id',
         component: ViewComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: ':name/registrar',
@@ -25,7 +28,7 @@ const layoutRoutes = [
     ],
   },
   {
-    path: 'authentication',
+    path: '',
     component: AuthenticationComponent,
     children: [
       {
