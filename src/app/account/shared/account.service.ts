@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
+  constructor() {}
 
-  constructor() { }
+  login(credentials: any) {
+    return new Promise((resolve) => {
+      window.localStorage.setItem('token', 'jwt_here');
+      resolve(true);
+    });
+  }
 }
