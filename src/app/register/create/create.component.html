@@ -1,1 +1,56 @@
-<p>create works!</p>
+<div style="padding:50px;">
+  <span *ngIf="success">Resgistrado com sucesso</span>
+  <form (ngSubmit) ="onSubmit()" [formGroup]="createRegisterForm" #formRegister="ngForm">
+    <h1>Registrar</h1>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input type="name" class="form-control" id="name" aria-describedby="emailHelp" formControlName="name">
+      <div *ngIf="name.invalid && formRegister.submitted" class="validation-error">
+        <span *ngIf="name.errors?.['required']">Campo obrigatório.</span>
+        <span *ngIf="name.errors?.['maxlength']">Tamanho do name muito longo.</span>
+        <span *ngIf="name.errors?.['name']">Formato de name inválido.</span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+      <div *ngIf="email.invalid && formRegister.submitted" class="validation-error">
+        <span *ngIf="email.errors?.['required']">Campo obrigatório.</span>
+        <span *ngIf="email.errors?.['maxlength']">Tamanho do email muito longo.</span>
+        <span *ngIf="email.errors?.['email']">Formato de email inválido.</span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="cpf" class="form-control" id="cpf" aria-describedby="emailHelp" formControlName="cpf" maxlength="14" minlength="14">
+      <div *ngIf="cpf.invalid && formRegister.submitted" class="validation-error">
+        <span *ngIf="cpf.errors?.['required']">Campo obrigatório.</span>
+        <span *ngIf="cpf.errors?.['maxlength']">Tamanho do cpf muito longo.</span>
+        <span *ngIf="cpf.errors?.['cpf']">Formato de cpf inválido.</span>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="celphone" class="form-label">Celular</label>
+      <input type="celphone" class="form-control" id="celphone" aria-describedby="emailHelp" formControlName="celphone">
+      <div *ngIf="celphone.invalid && formRegister.submitted" class="validation-error">
+        <span *ngIf="celphone.errors?.['required']">Campo obrigatório.</span>
+        <span *ngIf="celphone.errors?.['maxlength']">Tamanho do celphone muito longo.</span>
+        <span *ngIf="celphone.errors?.['celphone']">Formato de celphone inválido.</span>
+      </div>
+    </div>
+    <!-- REMENBER TO MAKE A RADIO INPUT -->
+    <div class="mb-3">
+      <label for="knowledges" class="form-label">Conhecimentos</label>
+      <input type="knowledges" class="form-control" id="knowledges" formControlName="knowledges">
+      <div *ngIf="knowledges.invalid && formRegister.submitted" class="validation-error">
+        <span *ngIf="knowledges.errors?.['required']">Campo obrigatório.</span>
+        <span *ngIf="knowledges.errors?.['minlength']">Tamanho mínimo de 4 caracteres.</span>
+      </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+
+
+
+</div>
