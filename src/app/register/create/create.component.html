@@ -1,6 +1,6 @@
-<div style="padding:50px;">
+<div class="page d-flex justify-content-center" style="padding:50px;">
   <span *ngIf="success">Resgistrado com sucesso</span>
-  <form ng-submit ="onSubmit(formRegister)" [formGroup]="createRegisterForm" #formRegister="ngForm">
+  <form class="form" ng-submit ="onSubmit(formRegister)" [formGroup]="createRegisterForm" #formRegister="ngForm">
     <h1>Registrar</h1>
     <div class="mb-3">
       <label for="name" class="form-label">Nome</label>
@@ -38,13 +38,17 @@
         <span *ngIf="celphone.errors?.['celphone']">Formato de celphone inválido.</span>
       </div>
     </div>
-    <div class="mb-3">
+    <div class="col-md-12">
       <label for="knowledges" class="form-label">Conhecimentos</label>
-      <div *ngFor="let choice of checks; let i=index" class="col-md-2">
+     <div>
+      <span class="obs" *ngIf="knowledges.errors?.['required']">OBS: Campo obrigatório. Escolha pelo menos um conhecimento.</span>
+     </div>
+
+      <div *ngFor="let choice of checks; let i=index">
           <input id="knowledges" type="checkbox" [value]="choice.value" (change)="onCheckChange($event)">
           {{choice.knowledge}}
       </div>
-      <span *ngIf="knowledges.errors?.['required']">Campo obrigatório. Escolha pelo menos um conhecimento.</span>
+
     </div>
     <br>
     <button class="btn btn-primary" (click)="onSubmit(formRegister)">Registrar</button>
