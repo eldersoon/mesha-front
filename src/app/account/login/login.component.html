@@ -17,6 +17,8 @@
       <span *ngIf="password.errors?.['minlength']">Tamanho mínimo de 4 caracteres.</span>
     </div>
   </div>
+  <span *ngIf="loginError?.['status'] === 401">{{ loginError.message }}</span>
+  <br>
   <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>
 </form>
 

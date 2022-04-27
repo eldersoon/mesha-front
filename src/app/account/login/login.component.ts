@@ -10,6 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  loginError = {
+    status: 0,
+    message: '',
+  };
 
   constructor(private accountService: AccountService, private router: Router) {}
 
@@ -40,11 +44,14 @@ export class LoginComponent implements OnInit {
       return;
     }
     try {
-      const response = await this.accountService.login(this.loginForm);
-      console.log(`login efetuado:  ${true}`);
+      const response = await this.accountService.login(this.loginForm.value);
 
       this.router.navigate(['']);
-    } catch (err) {
+    } catch (err: any) {
+      if (err.status === 401) {
+        this.loginError.status = 401;
+        this.loginError.message = 'Email ou password inválidos';
+      }
       console.log(err);
     }
   }
