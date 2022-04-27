@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../shared/account.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
     message: '',
   };
 
-  constructor(private accountService: AccountService, private router: Router) {}
+  constructor(
+    private accountService: AccountService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -49,10 +54,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     } catch (err: any) {
       if (err.status === 401) {
-        this.loginError.status = 401;
-        this.loginError.message = 'Email ou password inválidos';
+        this.toastr.error('Email ou senha inválidos', 'Ops');
       }
-      console.log(err);
     }
   }
 }

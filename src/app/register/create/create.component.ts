@@ -20,6 +20,7 @@ export class CreateComponent implements OnInit {
   createRegisterForm!: FormGroup;
   success!: any;
 
+  // this should be called from database, but...
   public checks: Array<any> = [
     { knowledge: 'Git', value: 1 },
     { knowledge: 'React', value: 2 },

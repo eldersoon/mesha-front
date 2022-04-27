@@ -36,6 +36,6 @@ export class AuthInterceptor implements HttpInterceptor {
       );
     }
 
-    return throwError('Ocorreu um erro, tente novamente');
+    return throwError(error);
   }
 }
