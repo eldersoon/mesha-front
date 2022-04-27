@@ -14,4 +14,18 @@ export class RegisterService {
       .toPromise();
     return response;
   }
+
+  async listRegisters() {
+    const response = await this.http
+      .get<any>(`${environment.api}registers`)
+      .toPromise();
+    return response;
+  }
+
+  async viewRegister(id: any) {
+    const response = await this.http
+      .get<any>(`${environment.api}register/${id}`)
+      .toPromise();
+    return response;
+  }
 }
