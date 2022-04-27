@@ -16,6 +16,7 @@ import { ViewComponent } from './register/view/view.component';
 import { HomeComponent } from './layout/home/home.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -30,6 +31,7 @@ const maskConfig: Partial<IConfig> = {
     CreateComponent,
     ViewComponent,
     HomeComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
