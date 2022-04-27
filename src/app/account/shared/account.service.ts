@@ -51,4 +51,15 @@ export class AccountService {
 
     return !(date.valueOf() > new Date().valueOf());
   }
+
+  isUserLoggedIn() {
+    const token = this.getAuthorizationToken();
+    if (!token) {
+      return false;
+    } else if (this.isTokenExpired(token)) {
+      return false;
+    }
+
+    return true;
+  }
 }
