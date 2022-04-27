@@ -1,16 +1,21 @@
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let register of registers">
-      <th scope="row">{{ register.id }}</th>
-      <td>{{ register.name }}</td>
-      <td><button class="btn btn-primary" (click)="viewRegister(register.id)">Ver</button></td>
-    </tr>
-  </tbody>
-</table>
+<div style="width: 100%;" class="table d-flex p-2 justify-content-center">
+  <table class="table table-dark col-sm-12 col-md-10" style="display: table;margin:0 auto;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Validado</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let register of registers">
+        <th scope="row">{{ register.id }}</th>
+        <td>{{ register.name }}</td>
+        <td *ngIf="register.valid===1">Sim</td>
+        <td *ngIf="register.valid===0">Não</td>
+        <td><button class="btn btn-primary" (click)="viewRegister(register.id)">Ver</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

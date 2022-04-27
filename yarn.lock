@@ -160,7 +160,7 @@
     "symbol-observable" "4.0.0"
     "uuid" "8.3.2"
 
-"@angular/common@>=10.0.0", "@angular/common@~13.3.0", "@angular/common@13.3.4":
+"@angular/common@>=10.0.0", "@angular/common@>=12.0.0-0", "@angular/common@~13.3.0", "@angular/common@13.3.4":
   "integrity" "sha512-vPZuUGWMXz6r30obBqH+iIG4Feq4YEK/4wUks7PEYGke8MXFPYsNKuHMhKCgYEhabD/4Mo4GEp3i18/3Kk72Mw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-13.3.4.tgz"
   "version" "13.3.4"
@@ -190,7 +190,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@>=10.0.0", "@angular/core@~13.3.0", "@angular/core@13.3.4":
+"@angular/core@>=10.0.0", "@angular/core@>=12.0.0-0", "@angular/core@~13.3.0", "@angular/core@13.3.4":
   "integrity" "sha512-PqPwx9oaV0Bh0m0fdI2jtXUC6s04jfD4vyzB4sjEuRI9pRUnZ6M5hZ5Vn/KJVZyt411MevbJfqzUVf0W+GDZew=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-13.3.4.tgz"
   "version" "13.3.4"
@@ -211,7 +211,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/platform-browser@~13.3.0", "@angular/platform-browser@13.3.4":
+"@angular/platform-browser@>=12.0.0-0", "@angular/platform-browser@~13.3.0", "@angular/platform-browser@13.3.4":
   "integrity" "sha512-IjBOkjrIVIbbZCDQJRdel0FSDcExSLDgMxcCSQ6pKa6oR/t59BJpSpOhB1W9nRwLtvMmGYkS/oyLFsKk65UoYA=="
   "resolved" "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-13.3.4.tgz"
   "version" "13.3.4"
@@ -4375,6 +4375,13 @@
   "integrity" "sha512-idgcud/JTta+4tgD/jAK+1u75mNpU5DDt+p7fK4kSIcQbwe4aznEHR7lo9xetiFTFg0o/cCPKv6BBywsZbdGPg=="
   "resolved" "https://registry.npmjs.org/ngx-mask/-/ngx-mask-13.1.11.tgz"
   "version" "13.1.11"
+  dependencies:
+    "tslib" "^2.3.0"
+
+"ngx-toastr@^14.3.0":
+  "integrity" "sha512-d8j/sOr60w5U7rGlcKQ0Ff4u+m2NzhqU5ZdJXn7QW3aR3Zf/rY7/Fd14BmUindTOWVr2NeTYcQXCjLpir0ldpA=="
+  "resolved" "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-14.3.0.tgz"
+  "version" "14.3.0"
   dependencies:
     "tslib" "^2.3.0"
 

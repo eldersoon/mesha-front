@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RegisterService } from '../register.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view',
@@ -14,7 +15,8 @@ export class ViewComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     route.params.subscribe((params: any) => {
       this.userId = params.id;
@@ -33,6 +35,7 @@ export class ViewComponent implements OnInit {
   async validRegister(id: any) {
     const api = await this.registerService.validRegister(id);
     console.log(api);
+    this.toastr.success('Wow!!', api.message);
     this.viewRegister(id);
   }
 }

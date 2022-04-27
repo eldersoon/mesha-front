@@ -1,5 +1,6 @@
-html,
-body {
-  min-height: 100%;
-  background-color: rgb(74, 1, 143);
+html, body {
+  margin: 0;
+  height: 100vh;
+  background-color: rgb(135, 29, 235);
 }
+

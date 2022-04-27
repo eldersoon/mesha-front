@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegisterService } from '../register.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -32,7 +33,8 @@ export class CreateComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     route.params.subscribe((params: any) => {
       this.registerName = params.name;
@@ -85,25 +87,26 @@ export class CreateComponent implements OnInit {
 
   async onSubmit(formDirective: FormGroupDirective) {
     if (this.createRegisterForm.invalid) {
-      console.log(this.createRegisterForm.value.cpf);
-      this.findInvalidControls();
+      this.toastr.error('Preencha os campos corretamente!', 'Ops');
+      // this.findInvalidControls();
       return;
     }
     try {
-      const response = await this.registerService.create(
+      const api = await this.registerService.create(
         this.createRegisterForm.value
       );
-      console.log(response);
-      if (response.status === 200) {
+      console.log(api);
+      if (api.status === 200) {
+        this.toastr.success(api.message, 'Wow!!');
         this.success = true;
       }
-      console.log(response);
+      console.log(api);
       formDirective.resetForm();
       this.createRegisterForm.reset();
-      // chamar para uma página de sucesso...
-      // ou mostrar modal e direcionar para outra tela ou ambos
+
       this.router.navigate(['login']);
     } catch (err: any) {
+      this.toastr.error(err.message, 'Ops');
       console.log(err);
     }
   }
