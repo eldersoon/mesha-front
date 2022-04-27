@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,10 @@ import { ViewComponent } from './register/view/view.component';
 import { HomeComponent } from './layout/home/home.component';
 
 import { httpInterceptorProviders } from './http-interceptors';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { httpInterceptorProviders } from './http-interceptors';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
