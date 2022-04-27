@@ -28,4 +28,11 @@ export class RegisterService {
       .toPromise();
     return response;
   }
+
+  async validRegister(id: any) {
+    const response = await this.http
+      .post<any>(`${environment.api}register/valid/${id}`, {})
+      .toPromise();
+    return response;
+  }
 }

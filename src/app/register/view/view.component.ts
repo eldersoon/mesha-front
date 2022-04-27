@@ -27,7 +27,12 @@ export class ViewComponent implements OnInit {
 
   async viewRegister(id: any) {
     const api = await this.registerService.viewRegister(id);
-    console.log(api.response.registers);
     this.register = api.response.registers;
+  }
+
+  async validRegister(id: any) {
+    const api = await this.registerService.validRegister(id);
+    console.log(api);
+    this.viewRegister(id);
   }
 }

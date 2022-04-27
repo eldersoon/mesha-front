@@ -1,4 +1,4 @@
-<div class="col-md-12" style="display:table;margin:10px auto;width: 100%;">
+<div *ngIf="register" class="col-md-12" style="display:table;margin:10px auto;width: 100%;">
   <div class="row" style="margin: 25px auto;padding: 10px;">
     <div class="card col-md-4" style="margin: 10px;">
       <div class="card-body">
@@ -10,8 +10,8 @@
             <p class="text-muted font-size-sm">{{register.celphone}}</p>
             <p *ngIf="register.valid === 1" class="text-muted font-size-sm">Validado</p>
             <p *ngIf="register.valid === 0" class="text-muted font-size-sm">Não validado</p>
-            <button *ngIf="register.valid === 0" class="btn btn-primary">Validar</button>
-            <button *ngIf="register.valid === 1" class="btn btn-primary">Invalidar</button>
+            <button *ngIf="register.valid === 0" class="btn btn-primary" (click)="validRegister(register.id)">Validar</button>
+            <button *ngIf="register.valid === 1" class="btn btn-primary" (click)="validRegister(register.id)">Invalidar</button>
           </div>
         </div>
       </div>
