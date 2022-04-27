@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: '',
+  api: 'https://safe-mesa-85171.herokuapp.com/api/',
 };
