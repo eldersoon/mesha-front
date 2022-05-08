@@ -18,6 +18,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { httpInterceptorProviders } from './http-interceptors';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -42,6 +44,7 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
