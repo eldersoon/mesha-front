@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormArray,
   FormControl,
   FormGroup,
   FormGroupDirective,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -62,7 +64,7 @@ export class CreateComponent implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ]),
-      knowledges: new FormArray([], Validators.required),
+      knowledges: new FormArray([], Validators.required, this.maxLength(3)),
     });
   }
 
@@ -142,5 +144,12 @@ export class CreateComponent implements OnInit {
     }
     console.log(invalid);
     return invalid;
+  }
+
+  public maxLength(max: number): ValidatorFn | any {
+    return (control: AbstractControl[]) => {
+      if (!(control instanceof FormArray)) return;
+      return control.length > max ? { valid: true } : { valid: false };
+    };
   }
 }

@@ -38,6 +38,8 @@ export class ViewComponent implements OnInit {
 
     if (api.status === 200) {
       this.toastr.success('Wow!!', api.message);
+      // forgot to comment
+      this.viewRegister(id);
     } else {
       this.toastr.success('Fim da sessão!', 'OPS!!');
       this.router.navigate(['login']);
