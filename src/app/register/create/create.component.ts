@@ -19,6 +19,7 @@ export class CreateComponent implements OnInit {
   registerName!: string;
   createRegisterForm!: FormGroup;
   success!: any;
+  loading: boolean = false;
 
   // this should be called from database, but...
   public checks: Array<any> = [
@@ -93,6 +94,8 @@ export class CreateComponent implements OnInit {
       return;
     }
     try {
+      this.loading = true;
+      this.createRegisterForm.disable();
       const api = await this.registerService.create(
         this.createRegisterForm.value
       );
@@ -107,6 +110,8 @@ export class CreateComponent implements OnInit {
 
       this.router.navigate(['login']);
     } catch (err: any) {
+      this.loading = false;
+      this.createRegisterForm.enable();
       this.toastr.error(err.message, 'Ops');
       console.log(err);
     }

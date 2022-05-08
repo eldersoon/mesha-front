@@ -51,7 +51,10 @@
 
     </div>
     <br>
-    <button class="btn btn-primary" (click)="onSubmit(formRegister)">Registrar</button>
+    <div class="row d-flex justify-content-start align-items-center">
+      <button class="btn btn-primary" (click)="onSubmit(formRegister)" [disabled]="loading">Registrar</button>
+      <mat-spinner *ngIf="loading" style="margin-left: 15px;" class="col-sm-6" diameter="20"></mat-spinner>
+    </div>
   </form>
 
 
