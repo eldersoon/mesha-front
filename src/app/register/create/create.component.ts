@@ -110,7 +110,7 @@ export class CreateComponent implements OnInit {
       formDirective.resetForm();
       this.createRegisterForm.reset();
 
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     } catch (err: any) {
       this.loading = false;
       this.createRegisterForm.enable();
