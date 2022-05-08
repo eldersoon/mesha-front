@@ -20,7 +20,12 @@
     </div>
     <span *ngIf="loginError?.['status'] === 401">{{ loginError.message }}</span>
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Entrar</button>
+   <div class="row d-flex justify-content-start align-items-center">
+    <button type="submit" class="col-sm-3 btn btn-primary" [disabled]="loginForm.invalid || loading">
+      Entrar
+    </button>
+    <mat-spinner *ngIf="loading" style="margin-left: 15px;" class="col-sm-6" diameter="20"></mat-spinner>
+   </div>
   </form>
 </div>
 

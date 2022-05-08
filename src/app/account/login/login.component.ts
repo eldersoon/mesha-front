@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     status: 0,
     message: '',
   };
+  loading: boolean = false;
 
   constructor(
     private accountService: AccountService,
@@ -49,10 +50,15 @@ export class LoginComponent implements OnInit {
       return;
     }
     try {
+      this.loading = true;
+      this.loginForm.disable();
+
       const response = await this.accountService.login(this.loginForm.value);
 
       this.router.navigate(['']);
     } catch (err: any) {
+      this.loading = false;
+      this.loginForm.enable();
       if (err.status === 401) {
         this.toastr.error('Email ou senha inválidos', 'Ops');
       }
